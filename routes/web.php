@@ -11,12 +11,15 @@ use App\Http\Controllers\CategoryController;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/home', [HomeController::class, 'index']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/home', [HomeController::class, 'index']);
+
+    Route::resource('articles', ArticleController::class);
+    Route::resource('tags', TagController::class);
+    Route::resource('categories', CategoryController::class);
+});
 
 Route::view('/about', 'about')
-    ->name('about');
+        ->name('about');
 
-Route::resource('articles', ArticleController::class);
-Route::resource('tags', TagController::class);
-Route::resource('categories', CategoryController::class);

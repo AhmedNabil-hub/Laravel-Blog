@@ -29,6 +29,7 @@
                         <th>Body</th>
                         <th>User</th>
                         <th>Category</th>
+                        <th>Tags</th>
                         <th></th>
                     </tr>
                     </thead>
@@ -39,6 +40,12 @@
                             <td>{{ $article->body }}</td>
                             <td>{{ $article->user->name }}</td>
                             <td>{{ $article->category->name }}</td>
+                            <td class="d-flex justify-content-between">
+                                @foreach ($article->tags as $tag)
+                                    <span style="background-color: gray">{{ $tag->name }} </span>
+                                @endforeach
+                            </td>
+
                             <td>
                                 <a class="btn btn-xs btn-info"
                                    href="{{ route('articles.edit', $article->id) }}">

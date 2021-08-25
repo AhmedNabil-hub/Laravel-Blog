@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <label class="required" for="title">Title</label>
                         <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text"
-                               name="title" id="title" value="{{ old('title', $post->title) }}" required>
+                               name="title" id="title" value="{{ old('title', $article->title) }}" required>
                         @if($errors->has('title'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('title') }}
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label class="required" for="image">Image</label>
                         <input class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file"
-                               name="image" id="image" value="{{ old('image') }}">
+                               name="image" id="image" value="{{ old('image', $article->image) }}">
                         @if($errors->has('image'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('image') }}

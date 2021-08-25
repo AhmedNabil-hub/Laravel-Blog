@@ -31,7 +31,7 @@
                         @endif
                         <span class="help-block"> </span>
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label class="required" for="tags">Tags</label>
                         <input class="form-control {{ $errors->has('tags') ? 'is-invalid' : '' }}" type="text"
                                name="tags" id="tags" value="{{ old('tags') }}" required>
@@ -41,7 +41,7 @@
                             </div>
                         @endif
                         <span class="help-block">Separated by comma</span>
-                    </div> --}}
+                    </div>
                     <div class="form-group">
                         <label class="required" for="category_id">Category</label>
                         <select class="form-control {{ $errors->has('category_id') ? 'is-invalid' : '' }}" name="category_id"
