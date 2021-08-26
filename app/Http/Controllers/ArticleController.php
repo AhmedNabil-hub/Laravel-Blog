@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Tag;
 use App\Models\Article;
 use App\Models\Category;
@@ -28,17 +29,11 @@ class ArticleController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
 
         $data = Arr::except(
-            $request->validate([
-                'title' => 'required|max:100|string',
-                'body' => 'required|string',
-                'image' => 'nullable',
-                'category_id' => 'required|exists:categories,id',
-                'tags' => 'required'
-            ]),
+            $request->validated(),
             'tags'
         );
 

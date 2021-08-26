@@ -16,7 +16,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $articles = Article::paginate(5);
+        $articles = Article::with('category')->paginate(10);
 
         return view('home', compact('articles'));
     }
