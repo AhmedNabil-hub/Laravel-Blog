@@ -18,15 +18,15 @@
                       @endif
                     </a>
                   </div>
-                  <div class="d-flex justify-content-between">
+                  <div class="">
                     <div class="text-muted">{{ $article->created_at->format('d F Y') }}</div>
-                    <div class=""><a href="#" class="font-weight-bolder text-info">{{ $article->category->name }}</a>
-                    </div>
+                    <a class="btn btn-outline-secondary mb-3" href="{{ route('categories.show', $article->category->id) }}" class="font-weight-bolder text-info">{{ $article->category->name }}</a>
+
                   </div>
                   <a href="{{ route('articles.show', $article) }}" class="font-weight-bold text-success">
                     <h3 class=""">{{ $article->title }}</h3>
-                                        </a>
-                                        <p class=" text-muted">{{ $article->body }}</p>
+                                          </a>
+                                          <p class=" text-muted">{{ $article->body }}</p>
                 </div>
               @endforeach
             </div>

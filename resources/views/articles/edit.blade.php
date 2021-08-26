@@ -44,8 +44,8 @@
                         <span class="help-block">Separated by comma</span>
                     </div>
                     <div class="form-group">
-                        <label class="required" for="category">Cateogory</label>
-                        <select class="form-control {{ $errors->has('project') ? 'is-invalid' : '' }}" name="category"
+                        <label class="required" for="category_id">Cateogory</label>
+                        <select class="form-control {{ $errors->has('project') ? 'is-invalid' : '' }}" name="category_id"
                                 id="category" required>
                             <option value="#">--- SELECT CATEGORY ---</option>
                             @foreach($categories as $category)
@@ -53,9 +53,9 @@
                                         @if (in_array($category->id, $article->category->pluck('id')->toArray())) selected @endif>{{ $category->name }}</option>
                             @endforeach
                         </select>
-                        @if($errors->has('category'))
+                        @if($errors->has('category_id'))
                             <div class="invalid-feedback">
-                                {{ $errors->first('category') }}
+                                {{ $errors->first('category_id') }}
                             </div>
                         @endif
                         <span class="help-block"></span>

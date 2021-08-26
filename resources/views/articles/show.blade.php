@@ -16,8 +16,11 @@
 
                         <div class="my-5">{!! nl2br($article->body) !!}</div>
 
+                        <a href="{{ route('categories.show', $article->category->id) }}" class="btn btn-outline-secondary mb-3" style="display: block;width:max-content">#{{ $article->category->name }}</a>
+
+
                         @foreach ($article->tags as $tag)
-                            <a href="#" class="btn btn-outline-secondary">#{{ $tag->name }}</a>
+                            <a href="{{ route('tags.show', $tag->id) }}" class="btn btn-outline-secondary">#{{ $tag->name }}</a>
                         @endforeach
                     </div>
                 </div>
